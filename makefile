@@ -21,7 +21,10 @@ directories:
 
 # Primary source compilation
 src_comp: src/*.cpp
-	$(subst %, $(subst .cpp,,$(subst /src,,$(wildcard src/*.cpp)))), $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
+	$(subst %,Main, $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
+	$(subst %,Producer, $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
+	$(subst %,Consumer, $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
+	$(subst %,BufManip, $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
 
 # Program binary executable compilation
 program: src_comp
