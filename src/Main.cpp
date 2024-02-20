@@ -1,9 +1,8 @@
 #include "../inc/Common.h"
-using namespace BoundedBufProj;
 using namespace std;
 
 // Shared sbuf_t struct
-BoundedBufProj::sbuf_t shared;
+sbuf_t shared;
 
 // Main point of entry
 int main()

@@ -1,8 +1,7 @@
 #include "../inc/Common.h"
-using namespace BoundedBufProj;
 
 // The producer
-void *BoundedBufProj::Producer(void *arg)
+void *Producer(void *arg)
 {
     int i, item, index;
  
