@@ -1,4 +1,5 @@
 #include "../inc/Common.h"
+using namespace BoundedBufProj;
 
 // Insert an item into the buffer.
 int InsertItem(buffer_item item) {
