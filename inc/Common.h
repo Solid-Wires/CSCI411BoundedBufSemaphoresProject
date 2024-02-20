@@ -22,6 +22,7 @@ namespace BoundedBufProj {
     #define NITERS      4		/* number of items produced/consumed */
 
     // Fields and structs
+    typedef int buffer_item;
     typedef struct {
         int buf[BUFF_SIZE];   /* shared var */
         int in;         	  /* buf[in%BUFF_SIZE] is the first empty slot */
@@ -36,4 +37,6 @@ namespace BoundedBufProj {
     // Since producer and consumer are so simple, they don't really need their own headers
     void *Producer(void *arg);
     void *Consumer(void *arg);
+    int InsertItem(buffer_item item);
+    int RemoveItem(buffer_item *item);
 }

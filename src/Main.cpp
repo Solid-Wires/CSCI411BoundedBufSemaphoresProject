@@ -11,6 +11,8 @@ int main()
     pthread_t idP, idC;
     int index;
 
+    // Initialize buffer
+
     /* Insert code here to initialize semaphores */
 
     for (index = 0; index < NP; index++)
