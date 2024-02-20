@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <semaphore.h>
+#include <unistd.h>
 
 // Constant fields
 #define BUFF_SIZE   5		/* total number of slots */
