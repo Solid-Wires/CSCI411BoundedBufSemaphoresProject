@@ -1,14 +1,12 @@
-#include <iterator>
 #include "../inc/Common.h"
 using namespace std;
 
 // Defined within namespace
 namespace BoundedBufProj {
-
     // Insert an item into the buffer.
     int InsertItem(buffer_item item) {
         try {
-            copy(begin(item), end(item), begin(shared.buf));
+            memcpy(shared.buf, item, BUFF_SIZE);
             return 0;
         } catch (...) {}
         return -1;
@@ -17,7 +15,7 @@ namespace BoundedBufProj {
     // Pop an item from the buffer.
     int RemoveItem(buffer_item *item) {
         try {
-            copy(begin(shared.buf), end(shared.buf), begin(item));
+            memcpy(item, shared.buf, BUFF_SIZE);
             return 0;
         } catch (...) {}
         return -1;
