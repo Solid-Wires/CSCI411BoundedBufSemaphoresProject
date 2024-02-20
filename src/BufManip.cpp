@@ -4,7 +4,7 @@ using namespace BoundedBufProj;
 // Insert an item into the buffer.
 int BoundedBufProj::InsertItem(buffer_item item) {
     try {
-        memccpy(shared.buf, item, BUFF_SIZE);
+        item >> shared.buf;
         return 0;
     } catch (...) {}
     return -1;
@@ -13,7 +13,7 @@ int BoundedBufProj::InsertItem(buffer_item item) {
 // Pop an item from the buffer.
 int BoundedBufProj::RemoveItem(buffer_item *item) {
     try {
-        memccpy(item, shared.buf, BUFF_SIZE);
+        shared.buf >> item;
         return 0;
     } catch (...) {}
     return -1;
