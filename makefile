@@ -5,7 +5,7 @@ BIN=BoundBuf
 OBJ_DIR=obj
 BIN_DIR=bin
 
-# All object file names
+# All object files to create (derived from all files in /src)
 objs := $(patsubst src/%.cpp,%.o,$(wildcard src/*.cpp))
 
 # Linker, version, and misc additions
@@ -22,12 +22,12 @@ directories:
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(BIN_DIR)
 
-# General compilation rule
-%.o: src/%.cpp
+# General obj compilation rule
+%.o: src/*.cpp
 	$(CC) $(VERSION) -c src/$*.cpp -o $(OBJ_DIR)/$*.o
 
 # Primary source compilation
-src_comp: src/*.cpp
+src_comp:
 	make -s $(objs)
 
 # Program binary executable compilation
