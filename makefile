@@ -23,11 +23,11 @@ directories:
 	@mkdir -p $(BIN_DIR)
 
 # General obj compilation rule
-%.o: src/*.cpp
+%.o: src/$(basename %).cpp
 	$(CC) $(VERSION) -c src/$*.cpp -o $(OBJ_DIR)/$*.o
 
 # Primary source compilation
-src_comp:
+src_comp: src/*.cpp
 	make -s $(objs)
 
 # Program binary executable compilation
