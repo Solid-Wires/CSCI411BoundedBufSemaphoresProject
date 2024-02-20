@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <semaphore.h>
 
+// Skeleton code provided
+
 #define BUFF_SIZE   5		/* total number of slots */
 #define NP          3		/* total number of producers */
 #define NC          3		/* total number of consumers */
@@ -58,5 +60,5 @@ int main()
 
     pthread_exit(NULL);
 }
-Important note: You must link the pthread library to any program that uses pthreads. You must also link the runtime library rt to any program that uses semaphores. So the compile command for the program above (call it prodcon.c) would be
-    gcc -o prodcon prodcon.c -lpthread -lrt
+//Important note: You must link the pthread library to any program that uses pthreads. You must also link the runtime library rt to any program that uses semaphores. So the compile command for the program above (call it prodcon.c) would be
+//    gcc -o prodcon prodcon.c -lpthread -lrt

@@ -1,5 +1,5 @@
 # Executable name
-BIN = BoundBuf
+BIN=BoundBuf
 
 # Directories
 OBJ_DIR=obj
@@ -8,6 +8,8 @@ BIN_DIR=bin
 # Linker, version, and misc additions
 CC=cc
 VERSION=-std=c++11
+RTL=-lrt
+LPTHREAD=-lpthread
 
 # All call
 all: directories programs
@@ -25,7 +27,7 @@ src_comp: src/*.cpp
 
 # Program binary executable compilation
 program: src_comp
-	g++ $(OBJ_DIR)/*.o -o $(BIN_DIR)/$(BIN)
+	g++ $(OBJ_DIR)/*.o -o $(BIN_DIR)/$(BIN) $(RTL) $(LPTHREAD)
 
 # Clean does a recursive removal of the generated bin and obj directories.
 .PHONY: clean
