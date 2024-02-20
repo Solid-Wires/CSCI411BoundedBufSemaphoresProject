@@ -20,15 +20,15 @@ directories:
 	@mkdir -p $(BIN_DIR)
 
 # General compilation rule
-$(OBJ_DIR)/%.o: src/%.cpp
-	$(CC) $(VERSION) -c src/$*.cpp -o $*.o
+%.o: src/%.cpp
+	$(CC) $(VERSION) -c src/$*.cpp -o $(OBJ_DIR)/$*.o
 
 # Primary source compilation
 src_comp: src/*.cpp
-	@make $(OBJ_DIR)/Main.o
-	@make $(OBJ_DIR)/Producer.o
-	@make $(OBJ_DIR)/Consumer.o
-	@make $(OBJ_DIR)/BufManip.o
+	@make Main.o
+	@make Producer.o
+	@make Consumer.o
+	@make BufManip.o
 
 # Program binary executable compilation
 program: src_comp
