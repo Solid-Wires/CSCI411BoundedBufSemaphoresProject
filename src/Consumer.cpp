@@ -2,7 +2,7 @@
 using namespace BoundedBufProj;
 
 // The consumer
-void *Consumer(void *arg)
+void *BoundedBufProj::Consumer(void *arg)
 {
     /* Fill in the code here */
 }
