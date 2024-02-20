@@ -1,10 +1,12 @@
 #include "../inc/Common.h"
 using namespace BoundedBufProj;
 
+buffer_item buffer;
+
 // Insert an item into the buffer.
 int BoundedBufProj::InsertItem(buffer_item item) {
     try {
-        shared.buf = item;
+        buffer = item;
         return 0;
     } catch (...) {}
     return -1;
