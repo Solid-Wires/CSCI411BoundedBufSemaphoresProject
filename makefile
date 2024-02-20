@@ -24,7 +24,7 @@ directories:
 	$(CC) $(VERSION) -c src/$*.cpp -o $(OBJ_DIR)/$*.o
 
 # Primary source compilation
-src_comp: src/*.cpp
+src_comp:
 	make -s Main.o
 	make -s Producer.o
 	make -s Consumer.o
