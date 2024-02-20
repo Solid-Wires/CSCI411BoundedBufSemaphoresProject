@@ -1,3 +1,4 @@
+#include <iterator>
 #include "../inc/Common.h"
 using namespace std;
 
