@@ -1,6 +1,5 @@
 // This is possible instead of include guards in this version
-#ifndef JW_COMMON
-#define JW_COMMON
+#pragma once
 
 //Includes from skeleton
 #include <pthread.h>
@@ -32,5 +31,3 @@ sbuf_t shared;
 // Since producer and consumer are so simple, they don't really need their own headers
 void *Producer(void *arg);
 void *Consumer(void *arg);
-
-#endif
