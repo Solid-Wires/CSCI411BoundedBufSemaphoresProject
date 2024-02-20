@@ -6,7 +6,7 @@ OBJ_DIR=obj
 BIN_DIR=bin
 
 # All object file names
-objs := $(patsubst %.cpp,%.o,$(wildcard src/*.cpp))
+objs := $(patsubst src/%.cpp,%.o,$(wildcard src/*.cpp))
 
 # Linker, version, and misc additions
 CC=cc
