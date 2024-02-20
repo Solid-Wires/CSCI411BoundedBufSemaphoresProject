@@ -20,7 +20,7 @@ directories:
 	@mkdir -p $(BIN_DIR)
 
 # General compilation rule
-%.o: src/%.cpp
+%.o: src/$*.cpp
 	$(CC) $(VERSION) -c src/$*.cpp -o $(OBJ_DIR)/$*.o
 
 # Primary source compilation
