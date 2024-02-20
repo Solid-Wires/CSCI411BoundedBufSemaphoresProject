@@ -3,7 +3,7 @@ using namespace BoundedBufProj;
 using namespace std;
 
 // Shared sbuf_t struct
-sbuf_t shared;
+BoundedBufProj::sbuf_t shared;
 
 // Main point of entry
 int main()
