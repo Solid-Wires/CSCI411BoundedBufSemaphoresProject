@@ -7,7 +7,7 @@ namespace BoundedBufProj {
     // Insert an item into the buffer.
     int InsertItem(buffer_item item) {
         try {
-            copy(begin(item), end(item), begin(shared.buf));
+            copy(item, item + BUFF_SIZE, shared.buf);
             return 0;
         } catch (...) {}
         return -1;
@@ -16,7 +16,7 @@ namespace BoundedBufProj {
     // Pop an item from the buffer.
     int RemoveItem(buffer_item *item) {
         try {
-            copy(begin(shared.buf), end(shared.buf), begin(item));
+            copy(shared.buf, shared.buf + BUFF_SIZE, item);
             return 0;
         } catch (...) {}
         return -1;
