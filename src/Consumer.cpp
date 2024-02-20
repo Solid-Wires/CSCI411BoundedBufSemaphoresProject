@@ -1,8 +1,10 @@
 #include "../inc/Common.h"
-using namespace BoundedBufProj;
+namespace BoundedBufProj {
 
-// The consumer
-void *BoundedBufProj::Consumer(void *arg)
-{
-    /* Fill in the code here */
+    // The consumer
+    void *BoundedBufProj::Consumer(void *arg)
+    {
+        /* Fill in the code here */
+    }
+    
 }
