@@ -1,4 +1,6 @@
 #include "../inc/Common.h"
+
+// Defined within namespace
 namespace BoundedBufProj {
 
   // The producer

@@ -2,7 +2,7 @@
 using namespace BoundedBufProj;
 using namespace std;
 
-// Namespace definitions
+// Namespace field definitions
 namespace BoundedBufProj {
     sbuf_t shared;
 }
