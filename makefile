@@ -21,14 +21,14 @@ directories:
 
 # General compilation rule
 $(OBJ_DIR)/%.o: src/%.cpp
-	$(CC) $(VERSION) -c $* -o $*.o
+	$(CC) $(VERSION) -c src/$*.cpp -o $*.o
 
 # Primary source compilation
 src_comp: src/*.cpp
-	make $(OBJ_DIR)/Main.o
-	make $(OBJ_DIR)/Producer.o
-	make $(OBJ_DIR)/Consumer.o
-	make $(OBJ_DIR)/BufManip.o
+	@make $(OBJ_DIR)/Main.o
+	@make $(OBJ_DIR)/Producer.o
+	@make $(OBJ_DIR)/Consumer.o
+	@make $(OBJ_DIR)/BufManip.o
 
 # Program binary executable compilation
 program: src_comp
