@@ -5,6 +5,9 @@ BIN=BoundBuf
 OBJ_DIR=obj
 BIN_DIR=bin
 
+# All object file names
+objs := $(patsubst %.cpp,%.o,$(wildcard src/*.cpp))
+
 # Linker, version, and misc additions
 CC=cc
 VERSION=-std=c++11
@@ -24,11 +27,8 @@ directories:
 	$(CC) $(VERSION) -c src/$*.cpp -o $(OBJ_DIR)/$*.o
 
 # Primary source compilation
-src_comp:
-	make -s Main.o
-	make -s Producer.o
-	make -s Consumer.o
-	make -s BufManip.o
+src_comp: src/*.cpp
+	make -s $(objs)
 
 # Program binary executable compilation
 program: src_comp
