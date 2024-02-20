@@ -11,7 +11,7 @@ int BoundedBufProj::InsertItem(buffer_item item) {
 }
 
 // Pop an item from the buffer.
-int BoundedBufProj::RemoveItem(buffer_item *item) {
+int BoundedBufProj::RemoveItem(buffer_item &item) {
     try {
         item = shared.buf;
         return 0;

@@ -22,7 +22,7 @@ namespace BoundedBufProj {
     #define NITERS      4		/* number of items produced/consumed */
 
     // Fields and structs
-    typedef int buffer_item[BUFF_SIZE];
+    typedef int buffer_item[BUFF_SIZE]; // Just an int array of BUF_SIZE
     typedef struct {
         buffer_item buf;      /* shared var */
         buffer_item in;       /* buf[in%BUFF_SIZE] is the first empty slot */
