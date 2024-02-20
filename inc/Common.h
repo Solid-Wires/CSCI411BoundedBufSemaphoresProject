@@ -25,7 +25,7 @@ typedef struct {
     sem_t empty;    	  /* keep track of the number of empty spots */
     sem_t mutex;    	  /* enforce mutual exclusion to shared data */
 } sbuf_t;
-sbuf_t shared;
+sbuf_t weird;
 
 // Functions
 // Since producer and consumer are so simple, they don't really need their own headers
