@@ -24,9 +24,9 @@ namespace BoundedBufProj {
     // Fields and structs
     typedef int buffer_item;
     typedef struct {
-        int buf[BUFF_SIZE];   /* shared var */
-        int in;         	  /* buf[in%BUFF_SIZE] is the first empty slot */
-        int out;        	  /* buf[out%BUFF_SIZE] is the first full slot */
+        buffer_item buf[BUFF_SIZE];   /* shared var */
+        buffer_item in;         	  /* buf[in%BUFF_SIZE] is the first empty slot */
+        buffer_item out;        	  /* buf[out%BUFF_SIZE] is the first full slot */
         sem_t full;     	  /* keep track of the number of full spots */
         sem_t empty;    	  /* keep track of the number of empty spots */
         sem_t mutex;    	  /* enforce mutual exclusion to shared data */
