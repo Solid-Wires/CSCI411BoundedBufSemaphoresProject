@@ -1,10 +1,13 @@
 // This is possible instead of include guards in this version
 #pragma once
 
+//Includes from skeleton
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <semaphore.h>
+// Includes I added
+#include <iostream>
 #include <unistd.h>
 
 // Constant fields
