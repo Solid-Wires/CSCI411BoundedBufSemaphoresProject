@@ -12,6 +12,8 @@
 
 // The project's namespace
 // I played around with namespaces here. I think you only initialize them in headers?
+// Basically, if you don't need this namespace, then you won't need to use it from this
+// definition file.
 namespace BoundedBufProj {
     // Constant fields
     #define BUFF_SIZE   5		/* total number of slots */

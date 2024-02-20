@@ -16,8 +16,7 @@ int main()
     for (index = 0; index < NP; index++)
     {  
         /* Create a new producer */
-        //pthread_create(&idP, NULL, Producer, (void*)index);
-        cout << "Running" << endl;
+        pthread_create(&idP, NULL, Producer, (void*)index);
     }
 
     /* Insert code here to create NC consumers */
