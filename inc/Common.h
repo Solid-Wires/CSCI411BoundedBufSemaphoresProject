@@ -32,7 +32,7 @@ namespace BoundedBufProj {
         sem_t empty;    	  /* keep track of the number of empty spots */
         sem_t mutex;    	  /* enforce mutual exclusion to shared data */
     } sbuf_t;
-    sbuf_t shared;
+    extern sbuf_t shared;
 
     // Functions
     // Since producer and consumer are so simple, they don't really need their own headers

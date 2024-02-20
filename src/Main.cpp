@@ -2,6 +2,8 @@
 using namespace BoundedBufProj;
 using namespace std;
 
+sbuf_t shared;
+
 // Main point of entry
 int main()
 {
