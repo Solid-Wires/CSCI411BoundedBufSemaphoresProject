@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <semaphore.h>
+#include <cstring.h>
 // Includes I added
 #include <iostream>
 #include <unistd.h>
