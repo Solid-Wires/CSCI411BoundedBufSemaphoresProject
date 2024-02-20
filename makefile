@@ -19,12 +19,16 @@ directories:
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(BIN_DIR)
 
+# General compilation rule
+$(OBJ_DIR)/%.o: src/%.cpp
+	$(CC) $(VERSION) -c $* -o $*.o
+
 # Primary source compilation
 src_comp: src/*.cpp
-	$(subst %,Main, $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
-	$(subst %,Producer, $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
-	$(subst %,Consumer, $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
-	$(subst %,BufManip, $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
+	make $(OBJ_DIR)/Main.o
+	make $(OBJ_DIR)/Producer.o
+	make $(OBJ_DIR)/Consumer.o
+	make $(OBJ_DIR)/BufManip.o
 
 # Program binary executable compilation
 program: src_comp
