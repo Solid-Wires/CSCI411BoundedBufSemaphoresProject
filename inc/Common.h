@@ -1,5 +1,6 @@
 // This is possible instead of include guards in this version
-#pragma once
+#ifndef JW_COMMON
+#define JW_COMMON
 
 //Includes from skeleton
 #include <pthread.h>
@@ -25,9 +26,11 @@ typedef struct {
     sem_t empty;    	  /* keep track of the number of empty spots */
     sem_t mutex;    	  /* enforce mutual exclusion to shared data */
 } sbuf_t;
-sbuf_t weird;
+sbuf_t shared;
 
 // Functions
 // Since producer and consumer are so simple, they don't really need their own headers
 void *Producer(void *arg);
 void *Consumer(void *arg);
+
+#endif
