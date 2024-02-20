@@ -20,7 +20,7 @@ directories:
 	@mkdir -p $(BIN_DIR)
 
 # Primary source compilation
-src_comp: src/*.cpp
+src_comp: src/Producer.cpp src/Consumer.cpp src/Main.cpp
 	$(subst %,Producer, $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
 	$(subst %,Consumer, $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
 	$(subst %,Main, $(CC) $(VERSION) -c src/%.cpp -o $(OBJ_DIR)/%.o)
