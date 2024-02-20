@@ -6,6 +6,7 @@ OBJ_DIR=obj
 BIN_DIR=bin
 
 # All object files to create (derived from all files in /src)
+# Awesome! Now I'll never have to look at this file again when I make new definition files.
 objs := $(patsubst src/%.cpp,%.o,$(wildcard src/*.cpp))
 
 # Linker, version, and misc additions
