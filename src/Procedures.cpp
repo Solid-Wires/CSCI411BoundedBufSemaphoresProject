@@ -26,6 +26,7 @@ namespace BoundedBufProj {
         }
 
         // Sleep for a defined amount of seconds before terminating.
+        cout << "Main thread is waiting for " << secRunTime << " seconds..." << endl;
         sleep(secRunTime);
 
         // Procedure is complete.
