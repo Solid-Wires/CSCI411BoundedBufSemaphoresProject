@@ -46,10 +46,10 @@ int main(int argc, char *argv[])
 
     // Sometimes, I ran unit tests.
     //UnitTests::UnitTestingWorks();
-    UnitTests::BufManipTests();
+    //UnitTests::BufManipTests();
 
     // Run the main interaction procedure.
-    //InteractionProcedure(numProducerThreads, numConsumerThreads);
+    InteractionProcedure(numProducerThreads, numConsumerThreads);
     
     // End of program
     cout << endl << "Main procedure finished." << endl;
