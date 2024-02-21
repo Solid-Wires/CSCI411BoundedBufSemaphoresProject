@@ -16,9 +16,9 @@ namespace BoundedBufProj {
 
     // Take an item out of the first full slot from the buffer.
     // shared.out gets incremented, and Modulo BUFF_SIZE wraps around
-    r_code RemoveItem(buffer_item &item) {
+    r_code RemoveItem(buffer_item **itemPtr) {
         try {
-            item = &shared.buf[shared.out%BUFF_SIZE];
+            *itemPtr = &shared.buf[shared.out%BUFF_SIZE];
             shared.out++;
             return 0;
         } catch (...) {}
