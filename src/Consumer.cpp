@@ -28,8 +28,14 @@ namespace BoundedBufProj {
             sem_wait(&shared.mutex);
 
             // CRITICAL SECTION
-            if (code == -1) {
+            if (code == 1) {
                 cerr << "ERR: Consumer " << (int)arg << " failed to extract an item!" << endl;
+            }
+            else if (code == 2) {
+                cerr << "ERR: Retrieved an empty item! Buffer: " << endl;
+                for (int j = 0; j < BUFF_SIZE; j++) {
+                    cerr << "\ti" << j << " = " << shared.buf[j] << endl;
+                }
             }
             else {
                 cout << " >> " << "Consumer " << (int)arg << " consumed " << *item << endl;

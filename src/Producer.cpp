@@ -29,7 +29,7 @@ namespace BoundedBufProj {
       sem_wait(&shared.mutex);
 
       // CRITICAL SECTION
-      if (code == -1) {
+      if (code == 1) {
         cerr << "ERR: Producer " << (int)arg << " failed to insert an item!" << endl;
       }
       else {
