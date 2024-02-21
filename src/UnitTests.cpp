@@ -5,8 +5,8 @@ using namespace std;
 namespace BoundedBufProj {
     namespace UnitTests {
 
-        // Anything might be placed here to be called from main.
-        r_code UnitTest() {
+        // Does this work?
+        r_code UnitTestingWorks() {
             cout << "Unit test method successful" << endl;
             return 0;
         }
