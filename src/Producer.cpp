@@ -7,6 +7,7 @@ namespace BoundedBufProj {
   // The producer's start routine
   void *Producer(void *arg)
   {
+    // Item it is producing
     buffer_item item;
 
     // Loops until it produces all it's going to produce
