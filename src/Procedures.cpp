@@ -24,9 +24,6 @@ namespace BoundedBufProj {
         //     pthread_create(&idC, NULL, Consumer, (void*)i);
         // }
 
-        // Any threads up to this point, terminate.
-        pthread_exit(NULL);
-
         // Sleep for a defined amount of seconds before terminating.
         // Once the main program terminates, all other threads will follow suit.
         sleep(secRunTime);

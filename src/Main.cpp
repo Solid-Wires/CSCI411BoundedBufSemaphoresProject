@@ -63,5 +63,6 @@ int main(int argc, char *argv[])
     
     // End of program
     cout << endl << "Program successfully executed" << endl;
-    return 0;
+    // Stop all threads
+    pthread_exit(NULL);
 }
