@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
     if (argc > 1) {
         // Sleep time (optional)
         sleepTime = stoi(argv[1]);
-        if (sleepTime < 1) {
-            // Can't make sleep time negative or 0
-            sleepTime = ST;
+        if (sleepTime < 0) {
+            cerr << "ERR: Cannot make sleep time less than 0" << endl;
+            return -1;
         }
     }
     else if (argc > 2) {
