@@ -47,10 +47,12 @@ int main(int argc, char *argv[])
     // Initialize semaphores.
     //  What's the initial value we need? Probably about as many threads as
     //  we're going to make is my best guess.
+    cout << "Initializing semaphores..." << endl;
     int totalThreads = numProducerThreads + numConsumerThreads;
     sem_init(&shared.full, 0, totalThreads);
     sem_init(&shared.empty, 0, totalThreads);
     sem_init(&shared.mutex, 0, 1);
+    cout << "All semaphores successfully initialized" << endl;
 
     // Sometimes, I ran unit tests.
     //UnitTests::UnitTestingWorks();
@@ -60,6 +62,6 @@ int main(int argc, char *argv[])
     InteractionProcedure(numProducerThreads, numConsumerThreads);
     
     // End of program
-    cout << endl << "Main procedure finished." << endl;
+    cout << endl << "Program successfully executed" << endl;
     return 0;
 }
