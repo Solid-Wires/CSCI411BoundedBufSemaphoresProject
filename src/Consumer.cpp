@@ -31,6 +31,7 @@ namespace BoundedBufProj {
             // These are very bad events. The thread must terminate if these happen.
             if (code == 1) {
                 cerr << "ERR: Consumer " << (int)arg << " failed to extract an item!" << endl;
+                pthread_exit(0);
             }
             // The item retrieved shouldn't be -1 (it was consumed if this is so)
             else if (*item == -1) {
@@ -40,7 +41,7 @@ namespace BoundedBufProj {
                 }
                 cerr << "Buffer in was at idx " << shared.in%BUFF_SIZE << endl;
                 cerr << "Buffer out was at idx " << shared.out%BUFF_SIZE << endl;
-                pthread_exit(1);
+                pthread_exit(0);
             }
             else {
                 cout << " >> " << "Consumer " << (int)arg << " consumed " << *item << endl;
