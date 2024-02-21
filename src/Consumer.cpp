@@ -38,8 +38,8 @@ namespace BoundedBufProj {
                 for (int j = 0; j < BUFF_SIZE; j++) {
                     cerr << "\ti" << j << " = " << shared.buf[j] << endl;
                 }
-                cerr << "Buffer in was at idx " << shared.in << endl;
-                cerr << "Buffer out was at idx " << shared.out << endl;
+                cerr << "Buffer in was at idx " << shared.in%BUFF_SIZE << endl;
+                cerr << "Buffer out was at idx " << shared.out%BUFF_SIZE << endl;
                 pthread_exit(1);
             }
             else {
