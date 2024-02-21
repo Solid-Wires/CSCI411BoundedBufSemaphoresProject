@@ -27,7 +27,7 @@ namespace BoundedBufProj {
                 cerr << "ERR: Consumer failed to extract an item!" << endl;
             }
             else {
-                cout << "Consumer consumed " << *item << endl;
+                cout << " >> " << "Consumer consumed " << *item << endl;
             }
             // Consume the item. Delicious.
             *item = 0;

@@ -30,7 +30,7 @@ namespace BoundedBufProj {
         cerr << "ERR: Producer failed to insert an item!" << endl;
       }
       else {
-        cout << "Producer produced " << item << endl;
+        cout <<  " << " <<  "Producer produced " << item << endl;
       }
       
       // Release the semaphore
