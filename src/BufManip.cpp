@@ -18,9 +18,9 @@ namespace BoundedBufProj {
     // shared.out gets incremented, and Modulo BUFF_SIZE wraps around
     r_code RemoveItem(buffer_item *item) {
         try {
-            cout << "item we're removing: " << shared.buf[shared.out%BUFF_SIZE] << endl;
+            cout << "before: " << *item << endl;
             item = &shared.buf[shared.out%BUFF_SIZE];
-            cout << "item we just removed: " << &item << endl;
+            cout << "after: " << *item << endl;
             shared.out++;
             return 0;
         } catch (...) {}
