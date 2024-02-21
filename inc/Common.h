@@ -25,9 +25,9 @@ namespace BoundedBufProj {
 
     // Fields and structs
     extern int sleepTime;
-    typedef int buffer_item[BUFF_SIZE]; // Just an int array of BUF_SIZE
+    typedef int buffer_item; // Just an int with a special name
     typedef struct {
-        buffer_item buf;      /* shared var */
+        buffer_item buf[BUFF_SIZE]; /* shared var */
         int in;               /* buf[in%BUFF_SIZE] is the first empty slot */
         int out;              /* buf[out%BUFF_SIZE] is the first full slot */
         sem_t full;     	  /* keep track of the number of full spots */
