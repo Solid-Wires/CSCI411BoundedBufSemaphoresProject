@@ -8,7 +8,7 @@ namespace BoundedBufProj {
     void *Consumer(void *arg)
     {
         // Item it is consuming (a pointer)
-        buffer_item *item;
+        buffer_item* item;
 
         // Loops until it consumes all it's going to consume
         for (int i = 0; i < NITERS; i++) {
