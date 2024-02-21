@@ -29,11 +29,10 @@ int main(int argc, char *argv[])
         // Number of consumer threads (optional)
         numConsumerThreads = stoi(argv[3]);
     }
+    // Buffer is defined in shared.buf
+    // All semaphores are defined in shared
 
-    // Initialize buffer
-    buffer_item buffer;
-
-    // Semaphores (already defined in shared)
+    
     
     // Initialize Producer threads
     for (int i = 0; i < numProducerThreads; i++)

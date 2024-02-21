@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <semaphore.h>
-#include <cstring>
 // Includes I added
 #include <iostream>
 #include <unistd.h>
@@ -26,6 +25,7 @@ namespace BoundedBufProj {
     // Fields and structs
     extern int sleepTime;
     typedef int buffer_item; // Just an int with a special name
+    typedef int r_code;
     typedef struct {
         buffer_item buf[BUFF_SIZE]; /* shared var */
         int in;               /* buf[in%BUFF_SIZE] is the first empty slot */

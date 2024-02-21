@@ -1,4 +1,5 @@
 #include "../inc/Common.h"
+using namespace std;
 
 // Defined within namespace
 namespace BoundedBufProj {
@@ -6,17 +7,25 @@ namespace BoundedBufProj {
   // The producer's start routine
   void *Producer(void *arg)
   {
-      int i, item, index;
-  
-    /* Fill in the code here */
-      for (i=0; i < NITERS; i++) {
+    buffer_item item;
 
-        /* Fill in the code here */
+    // Loops until it produces all it's going to produce
+    for (i = 0; i < NITERS; i++) {
+      /* Interleave  producer and consumer execution */
+      // Basically ensures that the producers and consumers are not synchronized
+      // Consumers will attempt to consume immediately
+      //if (i % 2 == 1) sleep(sleepTime);
 
-          /* Interleave  producer and consumer execution */
-          if (i % 2 == 1) sleep(sleepTime);
+      item = rand();
+      r_code code = InsertItem(item);
+      if (code == -1) {
+        cout << "ERR: Producer failed to insert an item!" << endl;
       }
-      return NULL;
+      else {
+        cout << "Producer produced " << item << endl;
+      }
+    }
+    return NULL;
   }
   
 }
