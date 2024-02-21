@@ -29,13 +29,13 @@ namespace BoundedBufProj {
             pthread_create(&idC[i], NULL, Consumer, (void*)i);
         }
 
-        // Sleep for a defined amount of seconds before terminating.
         cout << "Started " << numProducers << " producer threads" << endl;
         cout << "Started " << numConsumers << " consumer threads" << endl;
         cout << "Main thread is waiting for " << secRunTime << " seconds..." << endl;
         // Release the semaphore
         sem_post(&shared.mutex);
 
+        // Sleep for a defined amount of seconds before terminating.
         sleep(secRunTime);
 
         // Procedure is complete.

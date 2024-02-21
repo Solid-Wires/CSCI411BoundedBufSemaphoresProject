@@ -36,6 +36,7 @@ namespace BoundedBufProj {
       // Release the semaphore
       sem_post(&shared.mutex);
     }
+    // Terminate the thread.
     pthread_exit(0);
   }
   
