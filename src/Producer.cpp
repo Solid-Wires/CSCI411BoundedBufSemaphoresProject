@@ -27,10 +27,10 @@ namespace BoundedBufProj {
 
       // CRITICAL SECTION
       if (code == -1) {
-        cerr << "ERR: Producer " << *arg << " failed to insert an item!" << endl;
+        cerr << "ERR: Producer " << arg << " failed to insert an item!" << endl;
       }
       else {
-        cout <<  " << " <<  "Producer " << *arg << " produced " << item << endl;
+        cout <<  " << " <<  "Producer " << arg << " produced " << item << endl;
       }
       
       // Release the semaphore
