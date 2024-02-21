@@ -18,12 +18,23 @@ namespace BoundedBufProj {
 
       item = rand();
       r_code code = InsertItem(item);
+
+      // Acquire a mutex lock for outputting to the terminal
+      // I had some... interesting results when threads tried to output
+      // stuff on the same terminal.
+      // Acquire the semaphore
+      sem_wait(&shared.mutex);
+
+      // CRITICAL SECTION
       if (code == -1) {
         cerr << "ERR: Producer failed to insert an item!" << endl;
       }
       else {
         cout << "Producer produced " << item << endl;
       }
+      
+      // Release the semaphore
+      sem_post(&shared.mutex);
     }
     pthread_exit(0);
   }

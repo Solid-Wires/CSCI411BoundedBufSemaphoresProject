@@ -17,15 +17,25 @@ namespace BoundedBufProj {
             sleep(1);
 
             r_code code = RemoveItem(item);
+
+            // Acquire a mutex lock for outputting to the terminal
+            // I had some... interesting results when threads tried to output
+            // stuff on the same terminal.
+            // Acquire the semaphore
+            sem_wait(&shared.mutex);
+
+            // CRITICAL SECTION
             if (code == -1) {
                 cerr << "ERR: Consumer failed to extract an item!" << endl;
             }
             else {
                 cout << "Consumer consumed " << *item << endl;
             }
-
             // Consume the item. Delicious.
             *item = 0;
+
+            // Release the semaphore
+            sem_post(&shared.mutex);
         }
         pthread_exit(0);
     }
