@@ -9,10 +9,7 @@ namespace BoundedBufProj {
     // Mutex lock makes sure that the buffer doesn't get modified everywhere
     r_code InsertItem(buffer_item item) {
 
-        // Acquire semaphores
-        // Make sure we wait for the buffer to be flushed by other consumers
-        // So we don't overflow the buffer unnecessarily (wait for an empty slot)
-        sem_wait(&shared.empty);
+        // Acquire mutex semaphore
         // Mutex lock on inserting items
         sem_wait(&shared.mutex);
         r_code code = 0;
@@ -29,24 +26,24 @@ namespace BoundedBufProj {
         return code;
     }
 
-    // Take an item out of the first full slot from the buffer.
-    // shared.out gets incremented, and Modulo BUFF_SIZE wraps around
+    // Retrieve an item out of the first full slot from the buffer.
+    // Modulo BUFF_SIZE wraps around
     // Mutex lock makes sure that the buffer doesn't get modified everywhere
-    r_code RemoveItem(buffer_item *&itemptr) {
+    //
+    // NOTE: I accidentally made this slightly different from your skeleton, but I think
+    //  it is more appropriate for the consumer to handle consumption, and I
+    //  also think pointers are cool. So I left this the way it is.
+    r_code RetrieveItem(buffer_item *&itemptr) {
         
-        // Acquire semaphores
-        // Make sure we wait for the buffer to be filled by some producer
-        // So we don't grab an empty slot on accident (wait for a full slot)
-        sem_wait(&shared.full);
-        // Mutex lock on removing items
+        // Acquire mutex semaphore
+        // Mutex lock on retrieving items
         sem_wait(&shared.mutex);
         r_code code = 0;
 
         // CRITICAL SECTION
         try {
             itemptr = &shared.buf[shared.out%BUFF_SIZE];
-            shared.out++;
-            sem_post(&shared.empty); // Increment an empty spot
+            //shared.out doesn't get incremented because removal is handled somewhere else
         } catch (...) { code = 1; }
 
         // Release the mutex semaphore

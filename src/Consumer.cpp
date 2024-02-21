@@ -16,9 +16,14 @@ namespace BoundedBufProj {
             // Basically ensures that the producers and consumers are not synchronized
             sleep(1);
 
-            r_code code = RemoveItem(item);
+            // Make sure we wait for the buffer to be filled by some producer
+            // So we don't grab an empty slot on accident (wait for a full slot)
+            sem_wait(&shared.full);
+            // CRITICAL SECTION
+            r_code code = RetrieveItem(item);
 
             // Acquire a mutex lock for outputting to the terminal
+            // and incrementing the number of empty slots
             // Acquire the semaphore
             sem_wait(&shared.mutex);
 
@@ -31,6 +36,8 @@ namespace BoundedBufProj {
             }
             // Consume the item. Delicious.
             *item = 0;
+            shared.out++;
+            sem_post(&shared.empty); // Increment an empty spot
 
             // Release the semaphore
             sem_post(&shared.mutex);

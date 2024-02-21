@@ -16,6 +16,9 @@ namespace BoundedBufProj {
       // Basically ensures that the producers and consumers are not synchronized
       if (i % 2 == 1) sleep(1);
 
+      // Make sure we wait for the buffer to be flushed by other consumers
+      // So we don't overflow the buffer unnecessarily (wait for an empty slot)
+      sem_wait(&shared.empty);
       item = rand();
       r_code code = InsertItem(item);
 
