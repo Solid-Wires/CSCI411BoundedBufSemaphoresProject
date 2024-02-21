@@ -18,7 +18,7 @@ namespace BoundedBufProj {
     // shared.out gets incremented, and Modulo BUFF_SIZE wraps around
     r_code RemoveItem(buffer_item *&item) {
         try {
-            *item = &shared.buf[shared.out%BUFF_SIZE];
+            item = &shared.buf[shared.out%BUFF_SIZE];
             shared.out++;
             return 0;
         } catch (...) {}

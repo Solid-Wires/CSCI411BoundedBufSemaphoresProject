@@ -16,7 +16,7 @@ namespace BoundedBufProj {
             // Basically ensures that the producers and consumers are not synchronized
             //sleep(sleepTime);
 
-            r_code code = RemoveItem(&item);
+            r_code code = RemoveItem(item);
             if (code == -1) {
                 cerr << "ERR: Consumer failed to extract an item!" << endl;
             }
