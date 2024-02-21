@@ -38,7 +38,7 @@ namespace BoundedBufProj {
 
         // CRITICAL SECTION
         try {
-            item = &shared.buf[shared.out%BUFF_SIZE];
+            item = shared.buf[shared.out%BUFF_SIZE];
             shared.buf[shared.out%BUFF_SIZE] = -1;
             shared.out++;
             sem_post(&shared.empty); // Increment an empty spot
