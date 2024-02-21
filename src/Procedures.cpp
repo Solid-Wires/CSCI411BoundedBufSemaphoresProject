@@ -30,10 +30,12 @@ namespace BoundedBufProj {
         }
 
         // Sleep for a defined amount of seconds before terminating.
+        cout << "Started " << numProducers << " producer threads" << endl;
+        cout << "Started " << numConsumers << " consumer threads" << endl;
         cout << "Main thread is waiting for " << secRunTime << " seconds..." << endl;
         // Release the semaphore
         sem_post(&shared.mutex);
-        
+
         sleep(secRunTime);
 
         // Procedure is complete.
