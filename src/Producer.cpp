@@ -3,7 +3,7 @@
 // Defined within namespace
 namespace BoundedBufProj {
 
-  // The producer
+  // The producer's start routine
   void *Producer(void *arg)
   {
       int i, item, index;
@@ -14,7 +14,7 @@ namespace BoundedBufProj {
         /* Fill in the code here */
 
           /* Interleave  producer and consumer execution */
-          if (i % 2 == 1) sleep(1);
+          if (i % 2 == 1) sleep(sleepTime);
       }
       return NULL;
   }

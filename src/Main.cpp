@@ -4,6 +4,7 @@ using namespace std;
 
 // Namespace field definitions
 namespace BoundedBufProj {
+    int sleepTime = ST;
     sbuf_t shared;
 }
 
@@ -14,7 +15,6 @@ int main(int argc, char *argv[])
     pthread_t idP, idC;
 
     // Get command line arguments
-    int sleepTime = ST;
     int numProducerThreads = NP;
     int numConsumerThreads = NC;
     if (argc > 1) {
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     // Initialize buffer
     buffer_item buffer;
 
-    /* Insert code here to initialize semaphores */
+    // Semaphores (already defined in shared)
     
     // Initialize Producer threads
     for (int i = 0; i < numProducerThreads; i++)
@@ -48,6 +48,6 @@ int main(int argc, char *argv[])
         /* Create a new producer */
         pthread_create(&idC, NULL, Consumer, (void*)i);
     }
-    
+
     pthread_exit(NULL);
 }

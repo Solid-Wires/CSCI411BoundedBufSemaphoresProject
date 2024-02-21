@@ -24,11 +24,12 @@ namespace BoundedBufProj {
     #define NITERS      4		/* number of items produced/consumed */
 
     // Fields and structs
+    extern int sleepTime;
     typedef int buffer_item[BUFF_SIZE]; // Just an int array of BUF_SIZE
     typedef struct {
         buffer_item buf;      /* shared var */
-        buffer_item in;       /* buf[in%BUFF_SIZE] is the first empty slot */
-        buffer_item out;      /* buf[out%BUFF_SIZE] is the first full slot */
+        int in;               /* buf[in%BUFF_SIZE] is the first empty slot */
+        int out;              /* buf[out%BUFF_SIZE] is the first full slot */
         sem_t full;     	  /* keep track of the number of full spots */
         sem_t empty;    	  /* keep track of the number of empty spots */
         sem_t mutex;    	  /* enforce mutual exclusion to shared data */

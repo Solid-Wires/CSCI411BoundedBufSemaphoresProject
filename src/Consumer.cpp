@@ -3,7 +3,7 @@
 // Defined within namespace
 namespace BoundedBufProj {
 
-    // The consumer
+    // The consumer's start routine
     void *Consumer(void *arg)
     {
         /* Fill in the code here */
