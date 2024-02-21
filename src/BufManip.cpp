@@ -12,7 +12,7 @@ namespace BoundedBufProj {
         return -1;
     }
 
-    // Take an item from the buffer.
+    // Take an item out of the buffer.
     int RemoveItem(buffer_item *item) {
         try {
             item = &shared.buf[shared.out%BUFF_SIZE];
