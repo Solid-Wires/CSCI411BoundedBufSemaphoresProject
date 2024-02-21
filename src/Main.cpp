@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     // Run the main interaction procedure.
     InteractionProcedure(secRunTime, numProducerThreads, numConsumerThreads);
     
-    // End of program (all threads will likewise terminate)
+    // End of program
     cout << endl << "Program successfully executed" << endl;
     return 0;
 }

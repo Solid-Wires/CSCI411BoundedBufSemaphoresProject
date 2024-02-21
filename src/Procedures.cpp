@@ -26,8 +26,15 @@ namespace BoundedBufProj {
         }
 
         // Sleep for a defined amount of seconds before terminating.
-        // Once the main program terminates, all other threads will follow suit.
         sleep(secRunTime);
+
+        // Cancel all running threads
+        for (int i = 0; i = numProducers; i++) {
+            pthread_cancel(idP[i]);
+        }
+        for (int i = 0; i = numConsumers; i++) {
+            pthread_cancel(idC[i]);
+        }
 
         // Procedure is complete.
         cout << "End of producer consumer interaction procedure" << endl;

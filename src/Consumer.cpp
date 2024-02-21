@@ -19,8 +19,6 @@ namespace BoundedBufProj {
             r_code code = RemoveItem(item);
 
             // Acquire a mutex lock for outputting to the terminal
-            // I had some... interesting results when threads tried to output
-            // stuff on the same terminal.
             // Acquire the semaphore
             sem_wait(&shared.mutex);
 
