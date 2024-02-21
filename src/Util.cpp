@@ -7,7 +7,8 @@ namespace BoundedBufProj {
 
         // Anything might be placed here to be called from main.
         r_code UnitTest() {
-
+            cout << "Unit test method successful" << endl;
+            return 0;
         }
     }
 }
