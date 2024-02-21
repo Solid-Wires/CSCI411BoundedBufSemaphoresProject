@@ -12,6 +12,10 @@ namespace BoundedBufProj {
         pthread_t idP[numProducers];
         pthread_t idC[numConsumers];
 
+        // Acquire the semaphore
+        sem_wait(&shared.mutex);
+
+        // CRITICAL SECTION
         // Initialize Producer threads
         for (int i = 0; i < numProducers; i++)
         {  
@@ -27,6 +31,9 @@ namespace BoundedBufProj {
 
         // Sleep for a defined amount of seconds before terminating.
         cout << "Main thread is waiting for " << secRunTime << " seconds..." << endl;
+        // Release the semaphore
+        sem_post(&shared.mutex);
+        
         sleep(secRunTime);
 
         // Procedure is complete.
