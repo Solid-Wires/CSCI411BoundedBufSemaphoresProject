@@ -12,17 +12,17 @@ namespace BoundedBufProj {
         pthread_t idP, idC;
 
         // Initialize Producer threads
-        for (int i = 0; i < numProducers; i++)
-        {  
-            /* Create a new producer */
-            pthread_create(&idP, NULL, Producer, (void*)i);
-        }
-        // Initialize Consumer threads
-        for (int i = 0; i < numConsumers; i++)
-        {  
-            /* Create a new consumer */
-            pthread_create(&idC, NULL, Consumer, (void*)i);
-        }
+        // for (int i = 0; i < numProducers; i++)
+        // {  
+        //     /* Create a new producer */
+        //     pthread_create(&idP, NULL, Producer, (void*)i);
+        // }
+        // // Initialize Consumer threads
+        // for (int i = 0; i < numConsumers; i++)
+        // {  
+        //     /* Create a new consumer */
+        //     pthread_create(&idC, NULL, Consumer, (void*)i);
+        // }
 
         // Any threads up to this point, terminate.
         pthread_exit(NULL);
