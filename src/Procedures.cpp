@@ -4,7 +4,7 @@
 namespace BoundedBufProj {
 
     // The program's main procedure; interaction between consumers and producers.
-    r_code InteractionProcedure(int numProducers, int numConsumers) {
+    r_code InteractionProcedure(int secRunTime, int numProducers, int numConsumers) {
         cout << "Running producer consumer interaction procedure..." << endl;
 
         // The pthread objects
@@ -24,8 +24,13 @@ namespace BoundedBufProj {
         }
 
         // Any threads up to this point, terminate.
-        // Procedure is complete.
         pthread_exit(NULL);
+
+        // Sleep for a defined amount of seconds before terminating.
+        // Once the main program terminates, all other threads will follow suit.
+        sleep(secRunTime);
+
+        // Procedure is complete.
         cout << "End of producer consumer interaction procedure" << endl;
         return 0;
     }

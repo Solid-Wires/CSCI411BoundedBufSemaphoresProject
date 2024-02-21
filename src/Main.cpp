@@ -4,7 +4,6 @@ using namespace std;
 
 // Namespace field definitions
 namespace BoundedBufProj {
-    int sleepTime = ST;
     sbuf_t shared;
 }
 
@@ -12,14 +11,15 @@ namespace BoundedBufProj {
 int main(int argc, char *argv[])
 {
     // Get command line arguments
+    int secRunTime = RT;
     int numProducerThreads = NP;
     int numConsumerThreads = NC;
     try {
         if (argc > 1) {
             // Sleep time (optional)
-            sleepTime = stoi(argv[1]);
-            if (sleepTime < 0) {
-                throw invalid_argument("ERR: Cannot make sleep time less than 0");
+            secRunTime = stoi(argv[1]);
+            if (secRunTime < 1) {
+                throw invalid_argument("ERR: Cannot make run time less than 1");
             }
         }
         else if (argc > 2) {
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     //UnitTests::BufManipTests();
 
     // Run the main interaction procedure.
-    InteractionProcedure(numProducerThreads, numConsumerThreads);
+    InteractionProcedure(secRunTime, numProducerThreads, numConsumerThreads);
     
     // End of program
     cout << endl << "Program successfully executed" << endl;
