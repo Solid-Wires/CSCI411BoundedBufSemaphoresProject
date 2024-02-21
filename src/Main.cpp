@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
         else if (argc > 2) {
             // Number of producer threads (optional)
             numProducerThreads = stoi(argv[2]);
+            cout << stoi(argv[2]);
             if (numProducerThreads < 1) {
                 throw invalid_argument("ERR: Cannot make number of producer threads made less than 1");
             }
