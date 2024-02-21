@@ -19,7 +19,7 @@ namespace BoundedBufProj {
       item = rand();
       r_code code = InsertItem(item);
       if (code == -1) {
-        cout << "ERR: Producer failed to insert an item!" << endl;
+        cerr << "ERR: Producer failed to insert an item!" << endl;
       }
       else {
         cout << "Producer produced " << item << endl;
