@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     InteractionProcedure(secRunTime, numProducerThreads, numConsumerThreads);
     // If any of the threads fail to keep running, then the program (main thread)
     // will terminate after the defined seconds or manual interrupt anyways, which will
-    // still kill all of the other threads.
+    // still kill all of the other threads. I checked this with top -H and looked at Threads.
     
     // End of program
     cout << endl << "Program successfully executed" << endl;
