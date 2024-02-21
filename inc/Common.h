@@ -40,7 +40,7 @@ namespace BoundedBufProj {
     // Since producer and consumer are so simple, they don't really need their own headers
     void *Producer(void *arg);
     void *Consumer(void *arg);
-    r_code InteractionProcedure(void);
+    r_code InteractionProcedure(int numProducers, int numConsumers);
     r_code InsertItem(buffer_item item);
     r_code RemoveItem(buffer_item *&itemptr);
 
