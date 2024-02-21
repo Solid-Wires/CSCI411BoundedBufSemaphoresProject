@@ -12,9 +12,8 @@ namespace BoundedBufProj {
 
     // Loops until it produces all it's going to produce
     for (i = 0; i < NITERS; i++) {
-      /* Interleave  producer and consumer execution */
+      /* Interleave producer and consumer execution */
       // Basically ensures that the producers and consumers are not synchronized
-      // Consumers will attempt to consume immediately
       //if (i % 2 == 1) sleep(sleepTime);
 
       item = rand();
