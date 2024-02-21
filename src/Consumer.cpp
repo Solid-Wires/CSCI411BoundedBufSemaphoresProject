@@ -35,7 +35,7 @@ namespace BoundedBufProj {
                 cout << " >> " << "Consumer " << (int)arg << " consumed " << *item << endl;
             }
             // Consume the item. Delicious.
-            *item = -1;
+            *item = 0;
             shared.out++;
             sem_post(&shared.empty); // Increment an empty spot
 
