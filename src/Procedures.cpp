@@ -23,6 +23,9 @@ namespace BoundedBufProj {
             /* Create a new consumer */
             pthread_create(&idC, NULL, Consumer, (void*)i);
         }
+        
+        // Stop all threads at this point
+        pthread_exit(NULL);
 
         // Sleep for a defined amount of seconds before terminating.
         // Once the main program terminates, all other threads will follow suit.
