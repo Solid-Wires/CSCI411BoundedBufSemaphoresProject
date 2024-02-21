@@ -15,22 +15,21 @@ int main(int argc, char *argv[])
     int numProducerThreads = NP;
     int numConsumerThreads = NC;
     try {
-        if (argc > 1) {
+        if (sizeof(argv) > 1) {
             // Sleep time (optional)
             secRunTime = stoi(argv[1]);
             if (secRunTime < 1) {
                 throw invalid_argument("ERR: Cannot make run time less than 1");
             }
         }
-        else if (argc > 2) {
+        else if (sizeof(argv) > 2) {
             // Number of producer threads (optional)
             numProducerThreads = stoi(argv[2]);
-            cout << stoi(argv[2]);
             if (numProducerThreads < 1) {
                 throw invalid_argument("ERR: Cannot make number of producer threads made less than 1");
             }
         }
-        else if (argc > 3) {
+        else if (sizeof(argv) > 3) {
             // Number of consumer threads (optional)
             numConsumerThreads = stoi(argv[3]);
             if (numConsumerThreads < 1) {
