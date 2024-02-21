@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     // All semaphores are defined in shared
 
     // Sometimes, I ran unit tests.
-    UnitTests::UnitTest();
+    UnitTests::UnitTestingWorks();
 
     // Run the main interaction procedure.
     //InteractionProcedure(numProducerThreads, numConsumerThreads);
