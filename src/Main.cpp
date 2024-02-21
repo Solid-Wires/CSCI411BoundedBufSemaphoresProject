@@ -45,13 +45,10 @@ int main(int argc, char *argv[])
     // All semaphores are defined in shared
 
     // Initialize semaphores.
-    //  What's the initial value we need? Probably about as many threads as
-    //  we're going to make is my best guess.
     cout << "Initializing semaphores..." << endl;
-    int totalThreads = numProducerThreads + numConsumerThreads;
-    sem_init(&shared.full, 0, totalThreads);
-    sem_init(&shared.empty, 0, totalThreads);
-    sem_init(&shared.mutex, 0, 1);
+    sem_init(&shared.full, 0, BUFF_SIZE);   // Only as big as the buf size
+    sem_init(&shared.empty, 0, BUFF_SIZE);  // Only as big as the buf size
+    sem_init(&shared.mutex, 0, 1);          // Only one thread is allowed to touch mutex areas or wait for a release
     cout << "All semaphores successfully initialized" << endl;
 
     // Sometimes, I ran unit tests.
