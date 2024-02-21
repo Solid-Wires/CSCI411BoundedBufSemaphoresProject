@@ -6,8 +6,24 @@ namespace BoundedBufProj {
     namespace UnitTests {
 
         // Does this work?
-        r_code UnitTestingWorks() {
+        void UnitTestingWorks() {
             cout << "Unit test method successful" << endl;
+            return 0;
+        }
+
+        // Essentially does what the threads are going to try to do 
+        // from the main procedure anyways, but on one main thread, see
+        // if we can produce and consume values out of the tin.
+        void BufManipTests() {
+            cout << "Buffer manipulation tests starting..." << endl;
+
+            // Produce
+            Producer();
+            
+            // Consume
+            Consumer();
+
+            cout << "Buffer manipulation successful" << endl;
             return 0;
         }
     }

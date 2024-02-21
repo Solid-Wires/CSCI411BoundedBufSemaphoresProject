@@ -47,6 +47,7 @@ namespace BoundedBufProj {
     //Unit testing stuff, mostly for helping with debugging and verifying procedure calls
     namespace UnitTests {
         // Functions
-        r_code UnitTestingWorks(void);
+        void UnitTestingWorks(void);
+        void BufManipTests(void);
     }
 }
