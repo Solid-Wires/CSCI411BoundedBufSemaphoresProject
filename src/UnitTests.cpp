@@ -14,14 +14,13 @@ namespace BoundedBufProj {
         // from the main procedure anyways, but on one main thread, see
         // if we can produce and consume values out of the tin.
         void BufManipTests() {
-            int i = 0;
             cout << "Buffer manipulation tests starting..." << endl;
 
             // Produce
-            Producer(&i);
+            Producer((void*)0);
             
             // Consume
-            Consumer(&i);
+            Consumer((void*)0);
 
             cout << "Buffer manipulation successful" << endl;
         }
