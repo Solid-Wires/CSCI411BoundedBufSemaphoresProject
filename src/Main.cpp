@@ -36,7 +36,11 @@ int main(int argc, char *argv[])
     // Buffer is defined in shared.buf
     // All semaphores are defined in shared
 
-    InteractionProcedure();
+    // Sometimes, I ran unit tests.
+    Util::UnitTest();
+
+    // Run the main interaction procedure.
+    //InteractionProcedure();
     
     // End of program
     cout << endl << "Main procedure finished." << endl;
