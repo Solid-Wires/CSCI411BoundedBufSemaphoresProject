@@ -31,7 +31,7 @@ namespace BoundedBufProj {
             // These are very bad events. The thread must terminate if these happen.
             if (code == 1) {
                 cerr << "ERR: Consumer " << (int)arg << " failed to extract an item!" << endl;
-                pthread_exit(0);
+                pthread_exit(NULL);
             }
             // The item retrieved shouldn't be -1 (it was consumed if this is so!)
             //  But just because it is 0 doesn't mean it was consumed (rand may produce 0)
@@ -42,7 +42,7 @@ namespace BoundedBufProj {
                 }
                 cerr << "Buffer in was at idx " << shared.in%BUFF_SIZE << endl;
                 cerr << "Buffer out was at idx " << shared.out%BUFF_SIZE << endl;
-                pthread_exit(0);
+                pthread_exit(NULL);
             }
             else {
                 cout << " >> " << "Consumer " << (int)arg << " consumed " << item << endl;
@@ -52,7 +52,7 @@ namespace BoundedBufProj {
             sem_post(&shared.mutex);
         }
         // Terminate the thread.
-        pthread_exit(0);
+        pthread_exit(NULL);
     }
 
 }

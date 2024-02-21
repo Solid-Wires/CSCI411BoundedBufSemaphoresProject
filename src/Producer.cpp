@@ -31,7 +31,7 @@ namespace BoundedBufProj {
       // CRITICAL SECTION
       if (code == 1) {
         cerr << "ERR: Producer " << (int)arg << " failed to insert an item!" << endl;
-        pthread_exit(0);
+        pthread_exit(NULL);
       }
       else {
         cout <<  " << " <<  "Producer " << (int)arg << " produced " << item << endl;
@@ -41,7 +41,7 @@ namespace BoundedBufProj {
       sem_post(&shared.mutex);
     }
     // Terminate the thread.
-    pthread_exit(0);
+    pthread_exit(NULL);
   }
   
 }

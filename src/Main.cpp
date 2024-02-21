@@ -57,6 +57,9 @@ int main(int argc, char *argv[])
 
     // Run the main interaction procedure.
     InteractionProcedure(secRunTime, numProducerThreads, numConsumerThreads);
+    // If any of the threads fail to keep running, then the program (main thread)
+    // will terminate after the defined seconds or manual interrupt anyways, which will
+    // still kill all of the other threads.
     
     // End of program
     cout << endl << "Program successfully executed" << endl;
