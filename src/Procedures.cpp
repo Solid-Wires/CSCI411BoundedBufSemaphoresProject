@@ -17,26 +17,16 @@ namespace BoundedBufProj {
         {  
             /* Create a new producer */
             pthread_create(&idP[i], NULL, Producer, (void*)i);
-            pthread_detach(idP[i]);
         }
         // Initialize Consumer threads
         for (int i = 0; i < numConsumers; i++)
         {  
             /* Create a new consumer */
             pthread_create(&idC[i], NULL, Consumer, (void*)i);
-            pthread_detach(idC[i]);
         }
 
         // Sleep for a defined amount of seconds before terminating.
         sleep(secRunTime);
-
-        // Cancel all running threads
-        for (int i = 0; i = numProducers; i++) {
-            pthread_cancel(idP[i]);
-        }
-        for (int i = 0; i = numConsumers; i++) {
-            pthread_cancel(idC[i]);
-        }
 
         // Procedure is complete.
         cout << "End of producer consumer interaction procedure" << endl;
