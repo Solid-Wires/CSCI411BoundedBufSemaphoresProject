@@ -5,7 +5,7 @@ using namespace std;
 namespace BoundedBufProj {
 
     // Insert an item into the first empty slot on the buffer.
-    // shared.in gets incremented, and Modulo BUFF_SIZE wraps around
+    // shared.in gets incremented, and Mod BUFF_SIZE wraps around
     // Mutex lock makes sure that the buffer doesn't get modified everywhere
     r_code InsertItem(buffer_item item) {
 
@@ -27,7 +27,7 @@ namespace BoundedBufProj {
     }
 
     // Pop an item out of the first full slot from the buffer.
-    // Modulo BUFF_SIZE wraps around
+    // shared.out gets incremented, and Mod BUFF_SIZE wraps around
     // Mutex lock makes sure that the buffer doesn't get modified everywhere
     r_code RemoveItem(buffer_item &item) {
         
