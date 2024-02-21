@@ -20,7 +20,7 @@ namespace BoundedBufProj {
             // So we don't grab an empty slot on accident (wait for a full slot)
             sem_wait(&shared.full);
             // CRITICAL SECTION
-            r_code code = RemoveItem(&item);
+            r_code code = RemoveItem(item);
 
             // Acquire a mutex lock for outputting to the terminal
             // and incrementing the number of empty slots
