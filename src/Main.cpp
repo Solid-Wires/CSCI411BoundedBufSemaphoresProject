@@ -36,21 +36,9 @@ int main(int argc, char *argv[])
     // Buffer is defined in shared.buf
     // All semaphores are defined in shared
 
-
+    InteractionProcedure();
     
-    // Initialize Producer threads
-    for (int i = 0; i < numProducerThreads; i++)
-    {  
-        /* Create a new producer */
-        pthread_create(&idP, NULL, Producer, (void*)i);
-    }
-
-    // Initialize Consumer threads
-    for (int i = 0; i < numConsumerThreads; i++)
-    {  
-        /* Create a new producer */
-        pthread_create(&idC, NULL, Consumer, (void*)i);
-    }
-
-    pthread_exit(NULL);
+    // End of program
+    cout << endl << "Main procedure finished." << endl;
+    return 0;
 }

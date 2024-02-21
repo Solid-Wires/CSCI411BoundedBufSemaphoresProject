@@ -40,6 +40,13 @@ namespace BoundedBufProj {
     // Since producer and consumer are so simple, they don't really need their own headers
     void *Producer(void *arg);
     void *Consumer(void *arg);
-    int InsertItem(buffer_item item);
-    int RemoveItem(buffer_item *item);
+    r_code InteractionProcedure(void);
+    r_code InsertItem(buffer_item item);
+    r_code RemoveItem(buffer_item *item);
+
+    //Utility stuff, mostly for helping with debugging and verifying procedure calls
+    namespace Util {
+        // Functions
+        r_code UnitTest(void);
+    }
 }
