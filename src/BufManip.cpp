@@ -11,7 +11,6 @@ namespace BoundedBufProj {
         // Mutex lock on inserting items
         // Acquire the semaphore
         sem_wait(&shared.mutex);
-        cout << "Mutex lock acquired" << endl;
         r_code code = 0;
 
         // CRITICAL SECTION
