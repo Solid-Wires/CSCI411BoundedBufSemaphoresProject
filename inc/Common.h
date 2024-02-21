@@ -21,7 +21,7 @@ namespace BoundedBufProj {
     #define RT          3		/* default time to run */
     #define NP          3		/* default number of producers */
     #define NC          3		/* default number of consumers */
-    #define NITERS      4		/* number of items produced/consumed */
+    #define NITERS      100		/* number of items produced/consumed */
 
     // Fields and structs
     typedef int buffer_item; // Just an int with a special name
