@@ -32,6 +32,9 @@ namespace BoundedBufProj {
                 cout << '\t' << i << endl;
             }
 
+            //What I should see is the producer producing integers in the buffer
+            //  and the consumer "consuming" integers out of the buffer.
+
             cout << "Buffer manipulation successful" << endl;
         }
     }

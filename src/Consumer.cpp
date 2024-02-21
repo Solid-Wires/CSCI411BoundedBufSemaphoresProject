@@ -23,7 +23,8 @@ namespace BoundedBufProj {
             else {
                 cout << "Consumer consumed " << *item << endl;
             }
-            // Consume the item
+            
+            // Consume the item. Delicious.
             *item = 0;
         }
     }
