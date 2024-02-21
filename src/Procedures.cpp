@@ -16,6 +16,7 @@ namespace BoundedBufProj {
         {  
             /* Create a new producer */
             pthread_create(&idP, NULL, Producer, (void*)i);
+            cout << "made new producer" << endl;
         }
         // Initialize Consumer threads
         for (int i = 0; i < numConsumers; i++)
