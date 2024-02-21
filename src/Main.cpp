@@ -10,37 +10,44 @@ namespace BoundedBufProj {
 // Main point of entry
 int main(int argc, char *argv[])
 {
-    // For pthreads
+    // The pthread objects
     pthread_t idP, idC;
-    int index;
 
     // Get command line arguments
-    //  Must pass 3 arguments (plus the command itself)
-    int sleepTime = 0;
-    int numProducerThreads;
-    int numConsumerThreads;
-    if (argc == 1 + 3) {
+    int sleepTime = ST;
+    int numProducerThreads = NP;
+    int numConsumerThreads = NC;
+    if (argc > 1) {
+        // Sleep time (optional)
         sleepTime = stoi(argv[1]);
-        numProducerThreads = stoi(argv[2]);
-        numConsumerThreads = stoi(argv[3]);
     }
-    else {
-        cerr << "ERR: Invalid num of params. Must provide 3 params." << endl;
-        return 1;
+    else if (argc > 2) {
+        // Number of producer threads (optional)
+        numProducerThreads = stoi(argv[2]);
+    }
+    else if (argc > 3) {
+        // Number of consumer threads (optional)
+        numConsumerThreads = stoi(argv[3]);
     }
 
     // Initialize buffer
     buffer_item buffer;
 
     /* Insert code here to initialize semaphores */
-
-    for (index = 0; index < NP; index++)
+    
+    // Initialize Producer threads
+    for (int i = 0; i < numProducerThreads; i++)
     {  
         /* Create a new producer */
-        pthread_create(&idP, NULL, Producer, (void*)index);
+        pthread_create(&idP, NULL, Producer, (void*)i);
     }
 
-    /* Insert code here to create NC consumers */
-
+    // Initialize Consumer threads
+    for (int i = 0; i < numConsumerThreads; i++)
+    {  
+        /* Create a new producer */
+        pthread_create(&idC, NULL, Consumer, (void*)i);
+    }
+    
     pthread_exit(NULL);
 }

@@ -18,8 +18,9 @@
 namespace BoundedBufProj {
     // Constant fields
     #define BUFF_SIZE   5		/* total number of slots */
-    #define NP          3		/* total number of producers */
-    #define NC          3		/* total number of consumers */
+    #define ST          1		/* default sleeping time */
+    #define NP          3		/* default number of producers */
+    #define NC          3		/* default number of consumers */
     #define NITERS      4		/* number of items produced/consumed */
 
     // Fields and structs
