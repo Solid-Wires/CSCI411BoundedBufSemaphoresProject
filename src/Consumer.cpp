@@ -31,7 +31,8 @@ namespace BoundedBufProj {
             if (code == 1) {
                 cerr << "ERR: Consumer " << (int)arg << " failed to extract an item!" << endl;
             }
-            else if (code == 2) {
+            // The item retrieved shouldn't be -1 (it was consumed if this is so)
+            else if (*item == -1) {
                 cerr << "ERR: Retrieved an empty item! Buffer: " << endl;
                 for (int j = 0; j < BUFF_SIZE; j++) {
                     cerr << "\ti" << j << " = " << shared.buf[j] << endl;

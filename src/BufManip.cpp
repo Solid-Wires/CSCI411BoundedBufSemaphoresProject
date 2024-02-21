@@ -45,8 +45,6 @@ namespace BoundedBufProj {
             itemptr = &shared.buf[shared.out%BUFF_SIZE];
             //shared.out doesn't get incremented because removal is handled somewhere else
         } catch (...) { code = 1; }
-        // The item retrieved shouldn't be -1 (it was consumed if this is so)
-        if (*itemptr == -1) { code = 2; }
 
         // Release the mutex semaphore
         sem_post(&shared.mutex);
