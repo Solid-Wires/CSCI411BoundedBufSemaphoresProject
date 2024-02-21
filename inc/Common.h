@@ -9,7 +9,6 @@
 // Includes I added
 #include <iostream>
 #include <unistd.h>
-#include <array>
 
 // The project's namespace
 // I played around with namespaces here. I think you only initialize them in headers?
