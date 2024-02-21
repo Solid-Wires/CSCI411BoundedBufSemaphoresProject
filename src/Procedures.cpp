@@ -9,19 +9,20 @@ namespace BoundedBufProj {
         cout << "Running producer consumer interaction procedure..." << endl;
 
         // The pthread objects
-        pthread_t idP, idC;
+        pthread_t idP[numProducers];
+        pthread_t idC[numConsumers];
 
         // Initialize Producer threads
         for (int i = 0; i < numProducers; i++)
         {  
             /* Create a new producer */
-            pthread_create(&idP, NULL, Producer, (void*)i);
+            pthread_create(&idP[i], NULL, Producer, (void*)i);
         }
         // Initialize Consumer threads
         for (int i = 0; i < numConsumers; i++)
         {  
             /* Create a new consumer */
-            pthread_create(&idC, NULL, Consumer, (void*)i);
+            pthread_create(&idC[i], NULL, Consumer, (void*)i);
         }
 
         // Sleep for a defined amount of seconds before terminating.

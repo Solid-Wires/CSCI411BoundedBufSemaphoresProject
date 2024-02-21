@@ -25,7 +25,7 @@ namespace BoundedBufProj {
         cout << "Producer produced " << item << endl;
       }
     }
-    return NULL;
+    pthread_exit(0);
   }
   
 }

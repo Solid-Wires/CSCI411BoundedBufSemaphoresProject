@@ -27,6 +27,7 @@ namespace BoundedBufProj {
             // Consume the item. Delicious.
             *item = 0;
         }
+        pthread_exit(0);
     }
 
 }
