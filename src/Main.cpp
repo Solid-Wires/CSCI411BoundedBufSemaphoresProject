@@ -44,6 +44,14 @@ int main(int argc, char *argv[])
     // Buffer is defined in shared.buf
     // All semaphores are defined in shared
 
+    // Initialize semaphores.
+    //  What's the initial value we need? Probably about as many threads as
+    //  we're going to make is my best guess.
+    int totalThreads = numProducerThreads + numConsumerThreads;
+    sem_init(&shared.full, 0, totalThreads);
+    sem_init(&shared.empty, 0, totalThreads);
+    sem_init(&shared.mutex, 0, 1);
+
     // Sometimes, I ran unit tests.
     //UnitTests::UnitTestingWorks();
     //UnitTests::BufManipTests();
