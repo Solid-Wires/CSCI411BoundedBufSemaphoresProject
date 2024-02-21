@@ -44,7 +44,7 @@ namespace BoundedBufProj {
                 pthread_exit(0);
             }
             else {
-                cout << " >> " << "Consumer " << (int)arg << " consumed " << *item << endl;
+                cout << " >> " << "Consumer " << (int)arg << " consumed " << item << endl;
             }
             
             // Release the semaphore
