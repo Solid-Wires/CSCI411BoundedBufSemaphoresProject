@@ -36,6 +36,8 @@ namespace BoundedBufProj {
                 for (int j = 0; j < BUFF_SIZE; j++) {
                     cerr << "\ti" << j << " = " << shared.buf[j] << endl;
                 }
+                cerr << "Buffer in was at idx " << shared.in << endl;
+                cerr << "Buffer out was at idx " << shared.out << endl;
             }
             else {
                 cout << " >> " << "Consumer " << (int)arg << " consumed " << *item << endl;
