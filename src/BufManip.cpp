@@ -10,7 +10,7 @@ namespace BoundedBufProj {
 
         // Mutex lock on inserting items
         // Acquire the semaphore
-        sem_wait(&shared.mutex);
+        pthread_mutex_lock(&shared.mutex);
         cout << "Mutex lock acquired" << endl;
 
         // CRITICAL SECTION
@@ -21,7 +21,7 @@ namespace BoundedBufProj {
         } catch (...) {}
 
         // Release the semaphore
-        sem_post(&shared.mutex);
+        pthread_mutex_unlock(&shared.mutex);
         cout << "Mutex lock released" << endl;
         return -1;
     }
