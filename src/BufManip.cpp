@@ -20,6 +20,7 @@ namespace BoundedBufProj {
         try {
             cout << "item we're removing: " << shared.buf[shared.out%BUFF_SIZE] << endl;
             item = &shared.buf[shared.out%BUFF_SIZE];
+            cout << "item we just removed: " << item;
             shared.out++;
             return 0;
         } catch (...) {}
