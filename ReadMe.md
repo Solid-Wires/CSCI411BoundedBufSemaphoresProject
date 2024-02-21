@@ -7,19 +7,16 @@ This assignment was about understanding threads, semaphores, and about solving t
 # Assumptions
 
 * How I consume out of the buffer is arbitrary, although setting "consumed" places to -1 made the most sense to me.
-* Random wait times for both instances are between 1 to 4 seconds.
+* Random wait times for both instances are randomized between 1 to 4 seconds.
+* I'm fairly confident that if the main thread terminates, all of the child threads will also get killed. I checked if this was so with top -H and it appears so.
+* Some skeleton code parts of the lab document indicated infinite loops for the producer and consumers, although the provided skeleton code had finite loops. I mostly followed along with the provided skeleton over the document's skeletons.
 
 # How to run
 Simply run make to create the executables. You should see bin and obj directories created in the workspace.
 
-bin/server runs the server process, and bin/client runs the client process.
+bin/BoundBuf executes the program. It doesn't require any arguments, but if you do provide arguments, here's the rundown of them:
+* arg 1 - secRunTime: How long the main thread runs before terminating itself and all of the child threads. Defaults to 6 seconds.
+* arg 2 - numProducerThreads: How many producer threads to start in the procedure. Defaults to 3 threads.
+* arg 3 - numConsumerThreads: How many consumer threads to start in the procedure. Defaults to 3 threads.
 
-The server process must run first before the client processes. After the server is up and running, you must run 4 client processes in separate bash instances. The clients will automatically communicate with the server when you execute them.
-
-After all 4 client processes are opened, the server begins a countdown and sends a ready signal for all clients to send their temperatures. The procedures described are ran until temperature stability is achieved across all clients. After finishing, the server sends an end message to all clients and both the client and server makes sure to clean up all mq resources that they used.
-
-NOTE: If at any point that either executable fails, then it tries to clean up queues anyways and shut down. You can also interrupt any process at any time and it will clear its resources.
-
-# Analysis
-
-From what I've observed, the clients and server will stabilize at a temperature unit of 40 given these initial external temperatures and formulas.
+When you do run the program, what you should see are interactions between producers and consumers over a shared buffer. Each producer and consumer will attempt their actions a total of 4 fixed times. The program will eventually terminate after the defined amount of seconds. Notice that the threads may not entirely cover their executions if long random wait times are selected over a short run duration or if there aren't an equal number of producers and consumers.
