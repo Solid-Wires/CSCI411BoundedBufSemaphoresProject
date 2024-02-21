@@ -29,7 +29,7 @@ namespace BoundedBufProj {
     // Pop an item out of the first full slot from the buffer.
     // Modulo BUFF_SIZE wraps around
     // Mutex lock makes sure that the buffer doesn't get modified everywhere
-    r_code RemoveItem(buffer_item *item) {
+    r_code RemoveItem(buffer_item &item) {
         
         // Acquire mutex semaphore
         // Mutex lock on retrieving items
