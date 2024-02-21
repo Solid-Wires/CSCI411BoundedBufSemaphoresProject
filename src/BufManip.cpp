@@ -38,12 +38,10 @@ namespace BoundedBufProj {
         try {
             itemptr = &shared.buf[shared.out%BUFF_SIZE];
             shared.out++;
-            return 0;
         } catch (...) { code = 1; }
 
         // Release the semaphore
         sem_post(&shared.mutex);
-
         return code;
     }
 } 
