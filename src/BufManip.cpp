@@ -29,6 +29,9 @@ namespace BoundedBufProj {
     // Pop an item out of the first full slot from the buffer.
     // shared.out gets incremented, and Mod BUFF_SIZE wraps around
     // Mutex lock makes sure that the buffer doesn't get modified everywhere
+    //
+    // This used to be a clever retrieval, but a nasty bug with pointer addresses
+    // afflicted my code. The item == -1 check from Consumer.cpp tells quite a story.
     r_code RemoveItem(buffer_item &item) {
         
         // Acquire mutex semaphore

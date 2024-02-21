@@ -33,7 +33,8 @@ namespace BoundedBufProj {
                 cerr << "ERR: Consumer " << (int)arg << " failed to extract an item!" << endl;
                 pthread_exit(0);
             }
-            // The item retrieved shouldn't be -1 (it was consumed if this is so)
+            // The item retrieved shouldn't be -1 (it was consumed if this is so!)
+            //  But just because it is 0 doesn't mean it was consumed (rand may produce 0)
             else if (item == -1) {
                 cerr << "ERR: Consumer " << (int)arg << " retrieved an empty item! Buffer: " << endl;
                 for (int j = 0; j < BUFF_SIZE; j++) {
