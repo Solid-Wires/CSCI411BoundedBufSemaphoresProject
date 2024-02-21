@@ -14,7 +14,7 @@ namespace BoundedBufProj {
     for (int i = 0; i < NITERS; i++) {
       /* Interleave producer and consumer execution */
       // Basically ensures that the producers and consumers are not synchronized
-      //if (i % 2 == 1) sleep(sleepTime);
+      if (i % 2 == 1) sleep(1);
 
       item = rand();
       r_code code = InsertItem(item);
