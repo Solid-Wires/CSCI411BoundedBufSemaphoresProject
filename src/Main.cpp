@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
     // Sometimes, I ran unit tests.
     //UnitTests::UnitTestingWorks();
-    UnitTests::TestBufs();
+    UnitTests::BufManipTests();
 
     // Run the main interaction procedure.
     //InteractionProcedure(numProducerThreads, numConsumerThreads);
