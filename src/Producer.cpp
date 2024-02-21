@@ -27,7 +27,7 @@ namespace BoundedBufProj {
 
       // CRITICAL SECTION
       if (code == -1) {
-        cerr << "ERR: Producer failed to insert an item!" << endl;
+        cerr << "ERR: Producer " << pthread_self() << " failed to insert an item!" << endl;
       }
       else {
         cout <<  " << " <<  "Producer " << pthread_self() << " produced " << item << endl;

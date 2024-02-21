@@ -24,7 +24,7 @@ namespace BoundedBufProj {
 
             // CRITICAL SECTION
             if (code == -1) {
-                cerr << "ERR: Consumer failed to extract an item!" << endl;
+                cerr << "ERR: Consumer " << pthread_self() << " failed to extract an item!" << endl;
             }
             else {
                 cout << " >> " << "Consumer " << pthread_self() << " consumed " << *item << endl;
