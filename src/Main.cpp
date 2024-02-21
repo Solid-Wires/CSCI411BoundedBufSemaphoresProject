@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     // Initialize semaphores.
     cout << "Initializing semaphores..." << endl;
     sem_init(&shared.full, 0, 0);           // The buffer is initialized empty
-    sem_init(&shared.empty, 0, BUFF_SIZE - 1);  // Only as big as the empty buf size
+    sem_init(&shared.empty, 0, BUFF_SIZE);  // Only as big as the empty buf size
     sem_init(&shared.mutex, 0, 1);          // Only one thread is allowed to touch mutex areas or wait for a release
     cout << "All semaphores successfully initialized" << endl;
 
