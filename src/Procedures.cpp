@@ -11,7 +11,7 @@ namespace BoundedBufProj {
         // The pthread objects
         pthread_t idP, idC;
 
-        Initialize Producer threads
+        // Initialize Producer threads
         for (int i = 0; i < numProducers; i++)
         {  
             /* Create a new producer */
