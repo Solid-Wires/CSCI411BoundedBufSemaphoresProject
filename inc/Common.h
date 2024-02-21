@@ -42,7 +42,7 @@ namespace BoundedBufProj {
     void *Consumer(void *arg);
     r_code InteractionProcedure(int secRunTime, int numProducers, int numConsumers);
     r_code InsertItem(buffer_item item);
-    r_code RetrieveItem(buffer_item *&itemptr);
+    r_code RemoveItem(buffer_item *item);
 
     //Unit testing stuff, mostly for helping with debugging and verifying procedure calls
     namespace UnitTests {

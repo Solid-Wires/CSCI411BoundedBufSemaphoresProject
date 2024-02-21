@@ -26,14 +26,10 @@ namespace BoundedBufProj {
         return code;
     }
 
-    // Retrieve an item out of the first full slot from the buffer.
+    // Pop an item out of the first full slot from the buffer.
     // Modulo BUFF_SIZE wraps around
     // Mutex lock makes sure that the buffer doesn't get modified everywhere
-    //
-    // NOTE: I accidentally made this slightly different from your skeleton, but I think
-    //  it is more appropriate for the consumer to handle consumption, and I
-    //  also think pointers are cool. So I left this the way it is.
-    r_code RetrieveItem(buffer_item *&itemptr) {
+    r_code RemoveItem(buffer_item *item) {
         
         // Acquire mutex semaphore
         // Mutex lock on retrieving items
@@ -42,8 +38,10 @@ namespace BoundedBufProj {
 
         // CRITICAL SECTION
         try {
-            itemptr = &shared.buf[shared.out%BUFF_SIZE];
-            //shared.out doesn't get incremented because removal is handled somewhere else
+            item = &shared.buf[shared.out%BUFF_SIZE];
+            shared.buf[shared.out%BUFF_SIZE] = -1;
+            shared.out++;
+            sem_post(&shared.empty); // Increment an empty spot
         } catch (...) { code = 1; }
 
         // Release the mutex semaphore

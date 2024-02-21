@@ -8,7 +8,7 @@ namespace BoundedBufProj {
     void *Consumer(void *arg)
     {
         // Item it is consuming (a pointer)
-        buffer_item* item;
+        buffer_item item;
 
         // Loops until it consumes all it's going to consume
         for (int i = 0; i < NITERS; i++) {
@@ -20,7 +20,7 @@ namespace BoundedBufProj {
             // So we don't grab an empty slot on accident (wait for a full slot)
             sem_wait(&shared.full);
             // CRITICAL SECTION
-            r_code code = RetrieveItem(item);
+            r_code code = RemoveItem(&item);
 
             // Acquire a mutex lock for outputting to the terminal
             // and incrementing the number of empty slots
@@ -34,7 +34,7 @@ namespace BoundedBufProj {
                 pthread_exit(0);
             }
             // The item retrieved shouldn't be -1 (it was consumed if this is so)
-            else if (*item == -1) {
+            else if (item == -1) {
                 cerr << "ERR: Consumer " << (int)arg << " retrieved an empty item! Buffer: " << endl;
                 for (int j = 0; j < BUFF_SIZE; j++) {
                     cerr << "\ti" << j << " = " << shared.buf[j] << endl;
@@ -45,10 +45,6 @@ namespace BoundedBufProj {
             }
             else {
                 cout << " >> " << "Consumer " << (int)arg << " consumed " << *item << endl;
-                // Consume the item. Delicious.
-                *item = -1;
-                shared.out++;
-                sem_post(&shared.empty); // Increment an empty spot
             }
             
             // Release the semaphore
