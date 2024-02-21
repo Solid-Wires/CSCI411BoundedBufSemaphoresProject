@@ -8,7 +8,6 @@ namespace BoundedBufProj {
         // Does this work?
         void UnitTestingWorks() {
             cout << "Unit test method successful" << endl;
-            return 0;
         }
 
         // Essentially does what the threads are going to try to do 
@@ -25,7 +24,6 @@ namespace BoundedBufProj {
             Consumer(&i);
 
             cout << "Buffer manipulation successful" << endl;
-            return 0;
         }
     }
 }
