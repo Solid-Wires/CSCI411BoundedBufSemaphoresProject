@@ -14,7 +14,7 @@ namespace BoundedBufProj {
         for (int i = 0; i < NITERS; i++) {
             /* Interleave producer and consumer execution */
             // Basically ensures that the producers and consumers are not synchronized
-            sleep(1);
+            sleep((rand() % 4) + 1); // Sleep between 1 to 4 seconds
 
             // Make sure we wait for the buffer to be filled by some producer
             // So we don't grab an empty slot on accident (wait for a full slot)
