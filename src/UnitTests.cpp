@@ -18,9 +18,17 @@ namespace BoundedBufProj {
 
             // Produce
             Producer((void*)0);
+            cout << "In buffer: " << endl;
+            for (buffer_item i : shared.buf) {
+                cout << '\t' << i << endl;
+            }
             
             // Consume
             Consumer((void*)0);
+            cout << "In buffer: " << endl;
+            for (buffer_item i : shared.buf) {
+                cout << '\t' << i << endl;
+            }
 
             cout << "Buffer manipulation successful" << endl;
         }
