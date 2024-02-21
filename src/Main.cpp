@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     int totalThreads = numProducerThreads + numConsumerThreads;
     sem_init(&shared.full, 0, totalThreads);
     sem_init(&shared.empty, 0, totalThreads);
-    pthread_mutex_init(&shared.mutex, NULL);
+    sem_init(&shared.mutex, 0, 1);
     cout << "All semaphores successfully initialized" << endl;
 
     // Sometimes, I ran unit tests.

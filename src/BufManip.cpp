@@ -10,20 +10,19 @@ namespace BoundedBufProj {
 
         // Mutex lock on inserting items
         // Acquire the semaphore
-        pthread_mutex_lock(&shared.mutex);
+        sem_wait(&shared.mutex);
         cout << "Mutex lock acquired" << endl;
+        r_code code = 0;
 
         // CRITICAL SECTION
         try {
             shared.buf[shared.in%BUFF_SIZE] = item;
             shared.in++;
-            return 0;
-        } catch (...) {}
+        } catch (...) { code = 1; }
 
         // Release the semaphore
-        pthread_mutex_unlock(&shared.mutex);
-        cout << "Mutex lock released" << endl;
-        return -1;
+        sem_post(&shared.mutex);
+        return code;
     }
 
     // Take an item out of the first full slot from the buffer.
@@ -34,17 +33,18 @@ namespace BoundedBufProj {
         // Mutex lock on removing items
         // Acquire the semaphore
         sem_wait(&shared.mutex);
+        r_code code = 0;
 
         // CRITICAL SECTION
         try {
             itemptr = &shared.buf[shared.out%BUFF_SIZE];
             shared.out++;
             return 0;
-        } catch (...) {}
+        } catch (...) { code = 1; }
 
         // Release the semaphore
         sem_post(&shared.mutex);
 
-        return -1;
+        return code;
     }
 } 
