@@ -1,4 +1,5 @@
 #include "../inc/Common.h"
+using namespace std;
 
 // Defined within namespace
 namespace BoundedBufProj {
