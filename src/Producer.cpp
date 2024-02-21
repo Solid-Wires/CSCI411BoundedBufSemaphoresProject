@@ -11,7 +11,7 @@ namespace BoundedBufProj {
     buffer_item item;
 
     // Loops until it produces all it's going to produce
-    for (i = 0; i < NITERS; i++) {
+    for (int i = 0; i < NITERS; i++) {
       /* Interleave producer and consumer execution */
       // Basically ensures that the producers and consumers are not synchronized
       //if (i % 2 == 1) sleep(sleepTime);
