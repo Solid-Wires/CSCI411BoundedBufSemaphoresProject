@@ -18,10 +18,10 @@ namespace BoundedBufProj {
             cout << "Buffer manipulation tests starting..." << endl;
 
             // Produce
-            Producer();
+            Producer((void*)0);
             
             // Consume
-            Consumer();
+            Consumer((void*)0);
 
             cout << "Buffer manipulation successful" << endl;
             return 0;
