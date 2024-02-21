@@ -28,17 +28,19 @@ namespace BoundedBufProj {
             sem_wait(&shared.mutex);
 
             // CRITICAL SECTION
+            // These are very bad events. The thread must terminate if these happen.
             if (code == 1) {
                 cerr << "ERR: Consumer " << (int)arg << " failed to extract an item!" << endl;
             }
             // The item retrieved shouldn't be -1 (it was consumed if this is so)
             else if (*item == -1) {
-                cerr << "ERR: Retrieved an empty item! Buffer: " << endl;
+                cerr << "ERR: Consumer " << (int)arg << " retrieved an empty item! Buffer: " << endl;
                 for (int j = 0; j < BUFF_SIZE; j++) {
                     cerr << "\ti" << j << " = " << shared.buf[j] << endl;
                 }
                 cerr << "Buffer in was at idx " << shared.in << endl;
                 cerr << "Buffer out was at idx " << shared.out << endl;
+                pthread_exit(1);
             }
             else {
                 cout << " >> " << "Consumer " << (int)arg << " consumed " << *item << endl;
