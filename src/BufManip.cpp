@@ -6,16 +6,16 @@ namespace BoundedBufProj {
     // Insert an item into the buffer.
     int InsertItem(buffer_item item) {
         try {
-            memcpy(shared.buf, item, BUFF_SIZE);
+            shared.buf[shared.in%BUFF_SIZE] = item
             return 0;
         } catch (...) {}
         return -1;
     }
 
-    // Pop an item from the buffer.
+    // Take an item from the buffer.
     int RemoveItem(buffer_item *item) {
         try {
-            memcpy(item, shared.buf, BUFF_SIZE);
+            item = shared.buf[shared.out%BUFF_SIZE]
             return 0;
         } catch (...) {}
         return -1;
