@@ -23,6 +23,7 @@ namespace BoundedBufProj {
         {  
             /* Create a new consumer */
             pthread_create(&idC, NULL, Consumer, (void*)i);
+            cout << "made new consumer" << endl;
         }
 
         // Sleep for a defined amount of seconds before terminating.
