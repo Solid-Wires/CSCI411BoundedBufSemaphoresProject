@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
         sleepTime = stoi(argv[1]);
         if (sleepTime < 1) {
             // Can't make sleep time negative or 0
-            sleepTime = 1;
+            sleepTime = ST;
         }
     }
     else if (argc > 2) {
