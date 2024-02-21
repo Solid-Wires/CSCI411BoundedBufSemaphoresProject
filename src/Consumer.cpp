@@ -41,12 +41,12 @@ namespace BoundedBufProj {
             }
             else {
                 cout << " >> " << "Consumer " << (int)arg << " consumed " << *item << endl;
+                // Consume the item. Delicious.
+                *item = -1;
+                shared.out++;
+                sem_post(&shared.empty); // Increment an empty spot
             }
-            // Consume the item. Delicious.
-            *item = -1;
-            shared.out++;
-            sem_post(&shared.empty); // Increment an empty spot
-
+            
             // Release the semaphore
             sem_post(&shared.mutex);
         }
