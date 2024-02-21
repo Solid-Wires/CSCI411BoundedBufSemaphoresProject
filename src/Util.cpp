@@ -1,12 +1,14 @@
 #include "../inc/Common.h"
-using namespace BoundedBufProj;
 using namespace std;
 
-// Utility definitions
-namespace Util {
+// Utility definitions of util
+namespace BoundedBufProj {
+    namespace Util {
 
-    // Anything might be placed here to be called from main.
-    r_code UnitTest() {
+        // Anything might be placed here to be called from main.
+        r_code UnitTest() {
 
+        }
     }
 }
+
