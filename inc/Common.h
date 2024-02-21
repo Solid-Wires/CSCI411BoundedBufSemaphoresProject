@@ -44,9 +44,9 @@ namespace BoundedBufProj {
     r_code InsertItem(buffer_item item);
     r_code RemoveItem(buffer_item *item);
 
-    //Utility stuff, mostly for helping with debugging and verifying procedure calls
-    namespace Util {
+    //Unit testing stuff, mostly for helping with debugging and verifying procedure calls
+    namespace UnitTests {
         // Functions
-        r_code UnitTest(void);
+        r_code UtilWorks(void);
     }
 }

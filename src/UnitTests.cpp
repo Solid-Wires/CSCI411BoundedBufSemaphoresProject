@@ -3,7 +3,7 @@ using namespace std;
 
 // Utility definitions of util
 namespace BoundedBufProj {
-    namespace Util {
+    namespace UnitTests {
 
         // Anything might be placed here to be called from main.
         r_code UnitTest() {
